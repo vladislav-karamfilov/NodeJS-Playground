@@ -1,1 +1,3 @@
-# NodeJS-Playground
+# NodeJS Playground
+
+##Small projects in NodeJS platform

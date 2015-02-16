@@ -1,0 +1,22 @@
+[
+  {
+    "first-name": "Vladislav",
+    "last-name": "Karamfilov",
+    "age": 22
+  },
+  {
+    "first-name": "Pesho",
+    "last-name": "Ivanov",
+    "age": 26
+  },
+  {
+    "first-name": "Ivan",
+    "last-name": "Kirilov",
+    "age": 32
+  },
+  {
+    "first-name": "Gosho",
+    "last-name": "Ivanov",
+    "age": 16
+  }
+]

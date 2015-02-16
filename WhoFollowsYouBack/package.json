@@ -1,0 +1,21 @@
+{
+  "name": "Who-Follows-You-Back",
+  "version": "1.0.0",
+  "author": "Vladislav Karamfilov",
+  "license": "MIT",
+  "repository": "https://github.com/vladislav-karamfilov/Playground/tree/master/NodeJS%20Programming/WhoFollowsYouBack",
+  "keywords": [
+    "GitHub-followers",
+    "follower",
+    "GitHub",
+    "graph",
+    "testing",
+    "assertion",
+    "unit-testing",
+    "directed-graph"
+  ],
+  "dependencies": {
+    "chai": "^1.10.0",
+    "mocha": "^2.0.1"
+  }
+}

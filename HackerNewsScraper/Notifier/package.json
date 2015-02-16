@@ -1,0 +1,17 @@
+{
+  "name": "Hacker-News-Notifier",
+  "version": "0.0.1",
+  "description": "Notifier for Hacker-News Scraper App. Subscribing an email for news with some keywords.",
+  "author": "Vladislav Karamfilov",
+  "keywords": [
+    "hacker",
+    "news",
+    "notifier",
+    "hacker-news",
+    "hacker-news-notifier"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/vladislav-karamfilov/Playground/tree/master/NodeJS%20Programming/HackerNewsScraper",
+  "dependencies": {
+  }
+}

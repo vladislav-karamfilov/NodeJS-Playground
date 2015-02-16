@@ -1,0 +1,21 @@
+{
+  "name": "Hacker-News-Subscriber",
+  "version": "0.0.1",
+  "description": "Subscriber for Hacker-News Scraper App. Subscribing an email for news with some keywords.",
+  "author": "Vladislav Karamfilov",
+  "keywords": [
+    "hacker",
+    "news",
+    "subscriber",
+    "hacker-news",
+    "hacker-news-subscriber"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/vladislav-karamfilov/Playground/tree/master/NodeJS%20Programming/HackerNewsScraper",
+  "dependencies": {
+    "body-parser": "^1.9.2",
+    "express": "^4.10.1",
+    "generate-key": "0.0.6",
+    "node-persist": "0.0.2"
+  }
+}

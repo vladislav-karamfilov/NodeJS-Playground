@@ -1,0 +1,22 @@
+{
+  "name": "IniFilesParser",
+  "version": "1.0.0",
+  "description": "Parser from INI to JSON files and vice versa",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index <file-path-or-url-to-file>"
+  },
+  "keywords": [
+    "ini",
+    "parser",
+    "ini-files",
+    "ini-files-parser",
+    "json-files-parser",
+    "ini-json-parser"
+  ],
+  "author": "Vladislav Karamfilov",
+  "license": "MIT",
+  "dependencies": {
+    "argparse": "^0.1.15"
+  }
+}

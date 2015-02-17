@@ -1,0 +1,20 @@
+{
+  "name": "GrayscaleImageConverter",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "Vladislav Karamfilov (https://github.com/vladislav-karamfilov)",
+  "keywords": [
+    "image",
+    "grayscale",
+    "convert",
+    "RGB",
+    "png",
+    "jpeg"
+  ],
+  "description": "A simple NodeJS server that allows uploading an image, converting it to grayscale and return it",
+  "repository": "TODO",
+  "dependencies": {
+    "busboy": "^0.2.9",
+    "lwip": "0.0.6"
+  }
+}

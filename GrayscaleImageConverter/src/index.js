@@ -24,28 +24,61 @@ var requestListener = function (req, res) {
         var imageData = '';
 
         file.on('data', function (chunk) {
-          imageData += chunk;
+          imageData += chunk.toString('binary');
         });
 
         file.on('end', function () {
           var imageBuffer = new Buffer(imageData, 'binary');
-          lwip.open(imageBuffer, path.extname(fileName).substr(1), function (err, image) {
+          var imageType = path.extname(fileName).substr(1);
+          lwip.open(imageBuffer, imageType, function (err, image) {
             if (err) {
               res.writeHeader(200, {"Content-Type": "text/plain"});
               return res.end('Error reading image: ' + err);
             }
 
-            console.log('Image width: ' + image.width());
-            console.log('Image height: ' + image.height());
+            var batch = image.batch();
 
+            var imageWidth = image.width();
+            var imageHeight = image.height();
+
+            for (var i = 0; i < imageWidth; i++) {
+              for (var j = 0; j < imageHeight; j++) {
+                var currentPixel = image.getPixel(i, j);
+                var averageColorValue = Math.floor((currentPixel.r + currentPixel.g + currentPixel.b) / 3);
+                var newPixelColor = {
+                  r: averageColorValue,
+                  g: averageColorValue,
+                  b: averageColorValue,
+                  a: currentPixel.a
+                };
+
+                batch.setPixel(i, j, newPixelColor);
+              }
+            }
+
+            batch.exec(function (err, image) {
+              if (err) {
+                res.writeHeader(200, {"Content-Type": "text/plain"});
+                res.end('Error processing image: ' + err);
+              } else {
+                image.writeFile(function (err, imageBuffer) {
+                  if (err) {
+                    res.writeHeader(200, {"Content-Type": "text/plain"});
+                    res.end('Error getting processed image: ' + err);
+                  } else {
+                    res.setHeader(200, {
+                      "Content-Type": mimeType,
+                      "Content-Disposition": "Attachment; Filename=" + fileName
+                    });
+
+                    res.pipe(imageBuffer);
+                  }
+                });
+              }
+            });
           });
         });
       }
-    });
-
-    busboy.on('finish', function () {
-      res.writeHeader(200, {"Content-Type": "application/json"});
-      res.end(JSON.stringify(arguments));
     });
 
     req.pipe(busboy);

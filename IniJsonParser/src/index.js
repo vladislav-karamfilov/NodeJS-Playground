@@ -17,8 +17,8 @@ var logToConsole = function logToConsole(err, data) {
 };
 
 var argumentParser = new ArgumentParser();
-argumentParser.addArgument(['--type']);
 argumentParser.addArgument(['--file']);
+argumentParser.addArgument(['--type']);
 
 var args = argumentParser.parseArgs();
 if (!args.file) {

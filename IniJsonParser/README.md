@@ -1,4 +1,4 @@
-# Ini Json Parser
+# INI JSON Parser
 
 #### A simple command-line interface program that parses an ini file to a json file or vice versa. The path to the file to be parsed can be on the file system or on the Internet
 

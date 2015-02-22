@@ -1,11 +1,11 @@
 {
-  "name": "ChirperServer",
-  "version": "0.0.1",
+  "name": "chirper-server",
+  "version": "1.0.0",
   "description": "Server for Chirper application",
-  "main": "server.js",
-  "author": "Vladislav Karamfilov",
-  "license": "MIT",
+  "main": "src/server.js",
+  "author": "Vladislav Karamfilov (https://github.com/vladislav-karamfilov)",
   "dependencies": {
     "generate-key": "0.0.6"
-  }
+  },
+  "license": "MIT"
 }

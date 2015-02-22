@@ -1,5 +1,4 @@
 {
-
   "name": "json-to-mongo-importer",
   "version": "1.0.0",
   "description": "Inserts an array of JSON objects into a Mongo database with specified connection URL in config.json file.",
@@ -15,5 +14,8 @@
     "documents",
     "insert"
   ],
+  "dependencies": {
+    "mongodb": "^1.4.31"
+  },
   "license": "MIT"
 }

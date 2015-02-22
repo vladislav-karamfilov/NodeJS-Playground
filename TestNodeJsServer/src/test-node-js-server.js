@@ -11,7 +11,7 @@ http.createServer(function (request, response) {
         writeFileToResponseOnChunks(response, FILE_PATH);
     } else {
         response.writeHeader({ 'Content-Type': 'text/plain' });
-        response.end('Default response.');
+        response.end('Default plain text response.');
     }
 }).listen(3000);
 

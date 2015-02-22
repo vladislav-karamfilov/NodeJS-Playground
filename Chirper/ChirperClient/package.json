@@ -5,7 +5,6 @@
   "main": "client.js",
   "author": "Vladislav Karamfilov",
   "license": "MIT",
-  "repository": "https://github.com/vladislav-karamfilov/Playground/tree/master/NodeJS%20Programming/Chirper/ChirperClient",
   "dependencies": {
     "argparse": "^0.1.15"
   }

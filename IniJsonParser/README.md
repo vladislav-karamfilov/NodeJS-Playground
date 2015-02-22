@@ -2,7 +2,7 @@
 
 #### A simple command-line interface program that parses an ini file to a json file or vice versa. The path to the file to be parsed can be on the file system or on the Internet
 
-Original task description: (HackBulgaria's NodeJS course task from week 0)[https://github.com/HackBulgaria/NodeJS-1/blob/master/week0/1-ini-parsing/README.md]
+Original task description: [HackBulgaria's NodeJS course task from week 0](https://github.com/HackBulgaria/NodeJS-1/blob/master/week0/1-ini-parsing/README.md)
 
 ---
 

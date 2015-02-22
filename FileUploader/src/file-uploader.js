@@ -3,8 +3,10 @@
 var express = require('express'),
   busboy = require('connect-busboy'),
   fs = require('fs'),
-  app = express(),
-  util = require('util');
+  path = require('path'),
+  app = express();
+
+var PORT = 3000;
 
 app.use(busboy());
 
@@ -13,10 +15,10 @@ app.get('/fileUpload', function (request, response) {
   '<input type="file" name="file" /><input type="submit" value="Upload" /></form>')
 });
 
-app.post('/fileUpload', function (request, response, next) {
+app.post('/fileUpload', function (request, response) {
   request.pipe(request.busboy);
   request.busboy.on('file', function (fieldName, file, fileName) {
-    var filePath = __dirname + '/test/' + fileName;
+    var filePath = path.join(__dirname, '../uploads/', fileName);
     fs.exists(filePath, function (exists) {
       var redirectUrl = '/successfulFileUpload';
       if (exists) {
@@ -47,4 +49,6 @@ app.get('/successfulFileUpload', function (request, response) {
   response.send('<div style="color: #008000;">Successful file upload!</div>');
 });
 
-app.listen(3000);
+app.listen(PORT, function () {
+  console.log('Server running on port: ' + PORT)
+});

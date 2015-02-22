@@ -1,0 +1,21 @@
+{
+  "name": "file-uploader",
+  "version": "1.0.0",
+  "description": "A very simple Express server that allows uploading files to a specific folder",
+  "author": "Vladislav Karamfilov (https://github.com/vladislav-karamfilov)",
+  "main": "src/file-uploader.js",
+  "scripts": {
+    "start": "node file-uploader>"
+  },
+  "keywords": [
+    "file",
+    "upload",
+    "file-uploader",
+    "express-file-uploader"
+  ],
+  "dependencies": {
+    "connect-busboy": "0.0.2",
+    "express": "^4.11.2"
+  },
+  "license": "MIT"
+}

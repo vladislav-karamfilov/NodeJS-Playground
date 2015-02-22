@@ -1,8 +1,14 @@
-# Twitter clone in a single process
+# Chirper
 
-Using the `http` module write a Chirpr(uber innovative naming right there!) - a twitter-like service.
+#### Twitter clone in a single process
 
-## The Chirp API
+Original task description: [HackBulgaria's NodeJS course task from week 0](https://github.com/HackBulgaria/NodeJS-1/tree/master/week0/2-Chirper)
+
+---
+
+Using the `http` module write a Chirpr(über innovative naming right there!) - a twitter-like service.
+
+### The Chirp API
 
 We want to be able to make the following calls:
 
@@ -21,7 +27,7 @@ Some specification:
 * **The arguments to the API calls should be in JSON format!**
 * **All returns should be in JSON format!**
 
-### Formats
+#### Formats
 
 `/chirps`, `/all_chirps` and `/my_chirps` should return a json list with objects for the chirps:
 
@@ -48,7 +54,7 @@ Some specification:
     ]
 ```
 
-### Testing things out
+#### Testing things out
 
 Now, you should implement a Client for our Chirp API. Of course, using NodeJS.
 This should be entirely different code and project!
@@ -64,7 +70,7 @@ $ node chirp_client.js --register --user=RadoRado
 
 [Use argparse to parse your arguments.](https://github.com/nodeca/argparse)
 
-### Specification of all API calls
+#### Specification of all API calls
 
 The most important thing for our API client should be one `config.json` file, located relatively in the same directory, which will store the API url:
 
@@ -86,7 +92,7 @@ If you have an API key (a registered user), you should add it to the `config.jso
 
 All other API calls should rely on that `config.json`. The only exception is the API call for registering.
 
-#### Registering user
+##### Registering user
 
 This should look like this:
 
@@ -97,7 +103,7 @@ $ node chirp_client.js --register --user=RadoRado
 
 Once you have the response, update the `config.json` file with the user and the returned API key. If there is an existing user in `config.json`, overwrite it.
 
-#### Get all chirps
+##### Get all chirps
 
 This should look like this:
 
@@ -109,7 +115,7 @@ $ node chirp_client.js --getall
 This call does not require `user` and `key` in `config.json`
 
 
-#### Get my chirps
+##### Get my chirps
 
 This should look like this:
 
@@ -120,7 +126,7 @@ $ node chirp_client.js --getself
 
 This call requires `user` and `key` in `config.json`
 
-#### Create new chirp
+##### Create new chirp
 
 This should look like this:
 
@@ -132,7 +138,7 @@ $ node chirp_client.js --create --message="Relationship status: пътувам �
 This call requires `user` and `key` in `config.json`
 
 
-#### Delete a chirp
+##### Delete a chirp
 
 This should look like this:
 
@@ -143,7 +149,7 @@ $ node chirp_client.js --delete --chirpid=12
 
 This call requires `user` and `key` in `config.json`
 
-## NB
+### NB
 
 We're going extreme NODB! Keep all your data in-memory.
 

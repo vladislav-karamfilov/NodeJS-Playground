@@ -1,13 +1,12 @@
 {
-  "name": "JsonToMongoImporter",
+
+  "name": "json-to-mongo-importer",
   "version": "1.0.0",
   "description": "Inserts an array of JSON objects into a Mongo database with specified connection URL in config.json file.",
-  "main": "json-to-mongo.js",
-  "author": "Vladislav Karamfilov",
-  "license": "MIT",
-  "repository": "https://github.com/vladislav-karamfilov/Playground/tree/master/NodeJS%20Programming/JsonToMongoImporter",
-  "dependencies": {
-    "generate-key": "0.0.6"
+  "author": "Vladislav Karamfilov (https://github.com/vladislav-karamfilov)",
+  "main": "src/json-to-mongo.js",
+  "scripts": {
+    "start": "node json-to-mongo.js <file-path-to-json-to-be-imported>"
   },
   "keywords": [
     "mongodb",
@@ -15,5 +14,6 @@
     "collection",
     "documents",
     "insert"
-  ]
+  ],
+  "license": "MIT"
 }

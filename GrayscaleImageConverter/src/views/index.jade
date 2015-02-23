@@ -1,0 +1,8 @@
+extends layout
+
+block main-content
+  h2 Upload image to convert
+  div.image-upload-container
+    form(action="/upload", method="POST", enctype="multipart/form-data")
+      input(type="file", name="image")
+      input(type="submit", value="Convert to grayscale image")

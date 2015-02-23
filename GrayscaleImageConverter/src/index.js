@@ -5,18 +5,33 @@ var PORT = 3000;
 var http = require('http');
 var path = require('path');
 var Busboy = require('busboy');
+var jade = require('jade');
 var lwip = require('lwip');
+
+var writeSuccessResponseContentTypeHeader = function writeSuccessResponseContentTypeHeader(res, contentType) {
+  res.writeHeader(200, {"Content-Type": contentType});
+};
+
+var renderErrorView = function renderErrorView(res, err) {
+  var template = jade.compileFile('./views/error.jade');
+  var html = template({error: err});
+
+  writeSuccessResponseContentTypeHeader(res, 'text/html');
+  res.end(html);
+};
 
 var requestListener = function (req, res) {
   var requestMethod = req.method.toLowerCase();
   var requestUrl = req.url.toLowerCase();
   if (requestMethod === 'get' && requestUrl == '/') {
-    res.writeHeader(200, {"Content-Type": "text/html"});
-    res.end(
-      '<form method="post" action="/upload" enctype="multipart/form-data">\
-        <input type="file" name="image" />\
-        <input type="submit" value="Convert to grayscale image" />\
-      </form>');
+    jade.renderFile('./views/index.jade', function (err, html) {
+      if (err) {
+        return renderErrorView(res, 'Error rendering home page: ' + err);
+      }
+
+      writeSuccessResponseContentTypeHeader(res, 'text/html');
+      res.end(html);
+    });
   } else if (requestMethod === 'post' && requestUrl == '/upload') {
     var busboy = new Busboy({headers: req.headers});
     busboy.on('file', function (fieldName, file, fileName, encoding, mimeType) {
@@ -32,8 +47,7 @@ var requestListener = function (req, res) {
           var imageType = path.extname(fileName).substr(1);
           lwip.open(imageBuffer, imageType, function (err, image) {
             if (err) {
-              res.writeHeader(200, {"Content-Type": "text/plain"});
-              return res.end('Error reading image: ' + err);
+              return renderErrorView(res, 'Error reading image: ' + err);
             }
 
             var batch = image.batch();
@@ -41,6 +55,7 @@ var requestListener = function (req, res) {
             var imageWidth = image.width();
             var imageHeight = image.height();
 
+            // TODO: Use multiple threads
             for (var i = 0; i < imageWidth; i++) {
               for (var j = 0; j < imageHeight; j++) {
                 var currentPixel = image.getPixel(i, j);
@@ -56,25 +71,18 @@ var requestListener = function (req, res) {
               }
             }
 
-            batch.exec(function (err, image) {
+            batch.toBuffer(imageType, {}, function (err, imageBuffer) {
               if (err) {
-                res.writeHeader(200, {"Content-Type": "text/plain"});
-                res.end('Error processing image: ' + err);
-              } else {
-                image.writeFile(function (err, imageBuffer) {
-                  if (err) {
-                    res.writeHeader(200, {"Content-Type": "text/plain"});
-                    res.end('Error getting processed image: ' + err);
-                  } else {
-                    res.setHeader(200, {
-                      "Content-Type": mimeType,
-                      "Content-Disposition": "Attachment; Filename=" + fileName
-                    });
-
-                    res.pipe(imageBuffer);
-                  }
-                });
+                return renderErrorView(res, 'Error processing image: ' + err);
               }
+
+              res.writeHeader(200, {
+                "Content-Type": mimeType,
+                "Content-Disposition": 'attachment; filename=' + fileName,
+                "Content-Length": imageBuffer.length
+              });
+
+              res.end(imageBuffer, 'binary');
             });
           });
         });
@@ -83,8 +91,7 @@ var requestListener = function (req, res) {
 
     req.pipe(busboy);
   } else {
-    res.writeHeader(200, {"Content-Type": "text/plain"});
-    res.end('Invalid URL or HTTP method!');
+    renderErrorView(res, 'Invalid URL or HTTP method!');
   }
 };
 

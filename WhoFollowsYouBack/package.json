@@ -1,9 +1,8 @@
 {
   "name": "Who-Follows-You-Back",
   "version": "1.0.0",
-  "author": "Vladislav Karamfilov",
-  "license": "MIT",
-  "repository": "https://github.com/vladislav-karamfilov/Playground/tree/master/NodeJS%20Programming/WhoFollowsYouBack",
+  "description": "An app for getting the followers of a GitHub user.",
+  "author": "Vladislav Karamfilov (https://github.com/vladislav-karamfilov)",
   "keywords": [
     "GitHub-followers",
     "follower",
@@ -17,5 +16,6 @@
   "dependencies": {
     "chai": "^1.10.0",
     "mocha": "^2.0.1"
-  }
+  },
+  "license": "MIT"
 }

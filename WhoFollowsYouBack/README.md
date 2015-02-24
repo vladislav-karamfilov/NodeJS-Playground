@@ -1,6 +1,14 @@
-# Who follows you back on GitHub
+# Who Follows You Back on GitHub
 
-## Graph module
+#### An app that determines who follows a GitHub user. The app is built using a simple Graph module which has some tests
+
+Original task description: [HackBulgaria's NodeJS course task from week 3](https://github.com/HackBulgaria/NodeJS-1/blob/master/week3/1-Who-Follows-You-Back/README.md)
+
+!NB It is a work in progress. Currently only the `Graph` module is done and some tests are written for it.
+
+---
+
+### Graph module
 
 Write a module that exports a constructor function `DirectedGraph` for instantiating objects.
 Let the module be called `graph.js`
@@ -22,7 +30,7 @@ var Graph = require("./graph");
 var graph1 = new Graph(..);
 ```
 
-### Graph class
+#### Graph class
 
 The Graph should be:
 
@@ -39,7 +47,7 @@ There should be the following public methods for the `Graph`:
 * A method, called `pathBetween(nodeA, nodeB)`, which returns `true` if there is a path between `nodeA` and `nodeB`. Keep in kind that the graph is directed!
 * A method, called `toString()` which returns a string representation of the grap. This can be the stringified version of the internal structure of the graph. **Don't draw circles and `-->`**
 
-### Test the Graph class.
+#### Test the Graph class.
 
 Using a library of your choice, make a test-suite for testing the `DirectedGraph` class.
 
@@ -50,7 +58,7 @@ Make sure all public methods works just fine - create a test graph and assert if
 * Mocha - https://github.com/mochajs/mocha - as a test runner
 * Chai - http://chaijs.com/ - as an assertion library
 
-## Who Follows you back?
+### Who Follows you back?
 
 We are going to implement a NodeJS application, which can give the answer to the fundamental question of the universe - Who follows you back on GitHub?
 
@@ -61,7 +69,7 @@ We want to have the following high-level functionality:
 
 **Since building the social graph can take a long time, think about how to make it more efficient from user's perspective!**
 
-### Implementation details
+#### Implementation details
 
 * Use the [GitHub API](https://developer.github.com/v3/) to fetch the users that a given user follows.
 * Make sure to create yourself a GitHub Application from your settings and obtain `client_id` and `client_secret`. This is because of API Rate Limiting - https://developer.github.com/v3/rate_limit/
@@ -76,8 +84,7 @@ Be sure not to build graphs with depth `>= 4` - it's going to take forever ;)
 * `isFollowing` - accepts a username and returns `true`/`false` if the main user follows the one specified by the argument
 * `stepsTo` - accepts a username and return the number of hops needed to ge to that user following the `following`(pun not quite intended) relation
 
-
-### Endpoints
+#### Endpoints
 
 The app we are building should have the following endpoints:
 

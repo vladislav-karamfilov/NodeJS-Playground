@@ -1,10 +1,10 @@
 # HackerNews Subscriber App
 
 #### A complex app that scrapes the [Hacker News](https://news.ycombinator.com/) for threads about pandas. It is constructed by 4 separated smaller components:
-- A subscriber to manage emails & keywords
-- A notifier to send emails about new threads
-- A scraper, that communicates with the HackerNews API
-- A scraper, that wants to read the entire HackreNews over time
+- __A subscriber to manage emails & keywords__
+- __A notifier to send emails about new threads__
+- __A scraper, that communicates with the HackerNews API__
+- __A scraper, that wants to read the entire HackreNews over time__
 
 Original task description: [HackBulgaria's NodeJS course task from week 1](https://github.com/HackBulgaria/NodeJS-1/blob/master/week1/1-hackernews-scraper/README.md)
 

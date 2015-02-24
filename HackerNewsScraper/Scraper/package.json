@@ -1,4 +1,16 @@
 {
   "name": "Hacker-News-Scraper",
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "description": "Scraper for Hacker-News Scraper App. Scrapes the Hacker News website for threads about pandas.",
+  "author": "Vladislav Karamfilov (https://github.com/vladislav-karamfilov)",
+  "keywords": [
+    "hacker",
+    "news",
+    "scraper",
+    "hacker-news",
+    "hacker-news-scraper"
+  ],
+  "license": "MIT",
+  "dependencies": {
+  }
 }

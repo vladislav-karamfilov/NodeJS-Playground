@@ -6,8 +6,6 @@ Original task description: [HackBulgaria's NodeJS course task from week 0](https
 
 ---
 
-## Week 0
-
 ### Parsing ini files
 
 The task is to read in a [INI file](https://en.wikipedia.org/wiki/INI_file) and parse its contents.
